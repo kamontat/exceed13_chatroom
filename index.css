@@ -1,7 +1,12 @@
+/*class*/
+
 .text {
     font-size: 20px;
     height: 40px;
 }
+
+/* special value */
+
 #container {
     position: center;
     height: 50px;
@@ -23,6 +28,9 @@
 #alertMessage {
     color:
 }
+
+/* type */
+
 span {
     color: darkred;
 }
@@ -34,6 +42,9 @@ li {
     color: black;
     list-style-type: none;
 }
+
+/* hover */
+
 span:hover {
     color: red;
 }
