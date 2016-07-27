@@ -8,12 +8,11 @@ var ReactDOM = require("react-dom");
       render: function() {
         return (
           <div>
-            <h1>Hello World</h1>
+            <h1>Hello, It's Me</h1>
           </div>
         );
       }
     });
-
 }());
 
 var Wrapper = require('./wrapper.jsx');

@@ -1,19 +1,77 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+    <!--index.css-->
+    <link rel="stylesheet" href="/index.css">
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 </head>
 
 <body>
-    <div id="container"></div>
-    <script src="bundle.js"></script>
+    <div id="container">
+        <input id="input">
+        <span id="alertMessage"></span>
+        <button id="btn">Click me</button>
+        <ul id="list">
+
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var myBtn = $("#btn");
+        var list = $("#list");
+        var input = $("#input");
+        var message = $("#alertMessage");
+
+        var itemList = [];
+
+        function removeItem(index) {
+            itemList.splice(index, 1);
+            render();
+        }
+
+        function render() {
+            list.empty();
+            for (var i = 0; i < itemList.length; i++) {
+                var text = itemList[i];
+                list.append("<li>" + text + "<button onclick=\"removeItem(" + i + ");\"> <span>X</span> </button></li>");
+            }
+        }
+
+        function errorMessage(text) {
+            message.empty();
+            message.append(text);
+        }
+
+        input.keypress(function(e) {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                myBtn.click();
+            }
+        });
+
+        myBtn.click(function() {
+            // check empty input
+            if (input.val() == null || input.val() == "") return;
+            // check duplicate
+            for (var i = 0; i < itemList.length; i++) {
+                if (itemList[i] == input.val()) {
+                    errorMessage("duplicate input");
+                    return;
+                }
+            }
+            itemList.push(input.val());
+            render();
+        });
+    </script>
 </body>
 
 </html>
