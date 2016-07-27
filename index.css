@@ -1,48 +1,46 @@
+.text {
+    font-size: 20px;
+    height: 40px;
+}
+#container {
+    position: center;
+    height: 50px;
+    margin: auto;
+    width: 50%;
+}
 #input {
     font-size: 20px;
     padding-right: 0px;
     padding-left: 0px;
 }
-
 #btn {
     padding-right: 0px;
     padding-left: 0px;
-    font-size: 20px;
     background-color: chartreuse;
     border: 0;
-    color: snow;
+    color: #ff0000;
 }
-
+#alertMessage {
+    color:
+}
 span {
-    font-size: 20px;
     color: darkred;
 }
-
 button {
     border: 0;
     background-color: snow;
 }
-
 li {
-    height: 40px;
-    font-size: 20px;
     color: black;
     list-style-type: none;
 }
-
 span:hover {
-    font-size: 20px;
     color: red;
 }
-
 button:hover {
-    font-size: 20px;
     background-color: gray;
 }
-
 li:hover {
-    height: 40px;
-    font-size: 20px;
     color: red;
     list-style-type: none;
 }

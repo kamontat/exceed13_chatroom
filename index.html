@@ -8,23 +8,24 @@
 
     <title>Document</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
     <!--index.css-->
     <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 </head>
 
 <body>
     <div id="container">
-        <input id="input">
-        <span id="alertMessage"></span>
-        <button id="btn">Click me</button>
-        <ul id="list">
-
-        </ul>
+        <span class="text" id="alertMessage"></span>
+        <br>
+        <input class="text" id="input">
+        <button class="text" id="btn">Click me</button>
+        <ul class="text" id="list"></ul>
     </div>
+
     <script type="text/javascript">
         var myBtn = $("#btn");
         var list = $("#list");
@@ -49,6 +50,11 @@
         function errorMessage(text) {
             message.empty();
             message.append(text);
+
+            // clear the display
+            setTimeout(function() {
+                message.empty();
+            }, 1000);
         }
 
         input.keypress(function(e) {
@@ -60,7 +66,10 @@
 
         myBtn.click(function() {
             // check empty input
-            if (input.val() == null || input.val() == "") return;
+            if (input.val() == null || input.val() == "") {
+              errorMessage("empty input");
+              return;
+            }
             // check duplicate
             for (var i = 0; i < itemList.length; i++) {
                 if (itemList[i] == input.val()) {
