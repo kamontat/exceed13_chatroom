@@ -1,4 +1,3 @@
-var React = require("react");
 var ReactDOM = require("react-dom");
 
 module.exports = React.createClass({
@@ -9,8 +8,9 @@ module.exports = React.createClass({
 
         return (
             <div className="panel panel-primary">
-                {/* heading */}
+                {/* Header */}
                 <div id="chatroomName" className="panel-heading">Exceed software chatroom</div>
+                {/* Body */}
                 <div className="panel-body">
                     <GroupOption/>
                     <ChatDisplay/>

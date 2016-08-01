@@ -1,5 +1,3 @@
-var React = require('react');
-
 var InputOption = React.createClass({
     render: function() {
         return (

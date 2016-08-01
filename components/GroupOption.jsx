@@ -1,5 +1,3 @@
-var React = require('react');
-
 var GroupOption = React.createClass({
     render: function() {
         return (
