@@ -11,75 +11,22 @@
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
-    <!--index.css-->
-    <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
+    <!--custom.css-->
+    <link rel="stylesheet" href="/index.css">
+    <!--index.css-->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 </head>
 
 <body>
     <div id="container">
-        <span class="text" id="alertMessage"></span>
-        <br>
-        <input class="text" id="input">
-        <button class="text" id="btn">Click me</button>
-        <ul class="text" id="list"></ul>
+        <textarea id="chat-list"></textarea>
+        <input id="message"></input>
+        <button id="btn-sent">SEND</button>
     </div>
-
     <script type="text/javascript">
-        var myBtn = $("#btn");
-        var list = $("#list");
-        var input = $("#input");
-        var message = $("#alertMessage");
-
-        var itemList = [];
-
-        function removeItem(index) {
-            itemList.splice(index, 1);
-            render();
-        }
-
-        function render() {
-            list.empty();
-            for (var i = 0; i < itemList.length; i++) {
-                var text = itemList[i];
-                list.append("<li>" + text + "<button onclick=\"removeItem(" + i + ");\"> <span>X</span> </button></li>");
-            }
-        }
-
-        function errorMessage(text) {
-            message.empty();
-            message.append(text);
-
-            // clear the display
-            setTimeout(function() {
-                message.empty();
-            }, 1000);
-        }
-
-        input.keypress(function(e) {
-            if (e.keyCode == 13) {
-                e.preventDefault();
-                myBtn.click();
-            }
-        });
-
-        myBtn.click(function() {
-            // check empty input
-            if (input.val() == null || input.val() == "") {
-              errorMessage("empty input");
-              return;
-            }
-            // check duplicate
-            for (var i = 0; i < itemList.length; i++) {
-                if (itemList[i] == input.val()) {
-                    errorMessage("duplicate input");
-                    return;
-                }
-            }
-            itemList.push(input.val());
-            render();
-        });
+        var btn = $("#btn-sent");
+        var input = $("#message");
     </script>
 </body>
 
