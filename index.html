@@ -25,8 +25,30 @@
         <button id="btn-sent">SEND</button>
     </div>
     <script type="text/javascript">
+        var field = $("#chat-list");
         var btn = $("#btn-sent");
         var input = $("#message");
+
+        // do something to the server
+        $.ajax({
+            url: "http://10.32.176.4/workshop"
+        })
+        // run this, only if download from server is success
+        .done(function(data) {
+            words = data.split(",");
+            var text = "";
+            for (var i = 0; i < words.length; i++) {
+              text+= words[i];
+              text+= "\n"
+            }
+            field.html(text);
+        });
+
+        btn.click(function() {
+          var message = input.val();
+          
+        });
+
     </script>
 </body>
 
