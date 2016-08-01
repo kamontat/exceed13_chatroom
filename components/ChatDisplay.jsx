@@ -4,7 +4,7 @@ var ChatDisplay = React.createClass({
             <div>
                 <textarea disabled rows={15} style={{
                     resize: 'none'
-                }} className="form-control" id="chat-list"/>
+                }} className="form-control" id="chat-list" value={this.props.message}></textarea>
                 <br/>
             </div>
         );
