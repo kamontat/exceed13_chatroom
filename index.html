@@ -22,72 +22,124 @@
 <body>
     <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3" id="container">
-            <div class="panel panel-primary">
-                <!-- heading -->
-                <div class="panel-heading">Exceed software chatroom</div>
+            <!-- <div class="panel panel-primary">
+                <!-- heading
+                <div id="chatroomName" class="panel-heading">Exceed software chatroom</div>
                 <div class="panel-body">
-                    <!-- text area -->
+                    <!-- group option
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button id="btn-createGroup" type="button" class="btn btn-warning">Create Group</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button id="btn-toGroup" type="button" class="btn btn-info">To Group</button>
+                        </div>
+                    </div>
+                    <!-- text area
                     <textarea disabled rows="15" style="resize:none" class="form-control" id="chat-list"></textarea>
                     <br>
-                    <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-md-12 col-lg-10">
                         <div class="input-group">
-                            <!-- input message -->
+                            <!-- input message
                             <input id="message" type="text" class="form-control" placeholder="texting message...">
                             <span class="input-group-btn">
-                          <button id="btn-sent" class="btn btn-success" type="button">SEND!</button>
-                      </span>
+                                <button id="btn-sent" class="btn btn-success" type="button">SEND!</button>
+                            </span>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
     <script type="text/javascript">
         // naming
-        var name = prompt("please, Enter your name?");
-
-        var field = $("#chat-list");
-
-        var btn = $("#btn-sent");
-        var input = $("#message");
-
-        var currentMessage = "";
-
-        setInterval(function() {
-            // current time
-            var now = (new Date()).toUTCString();
-
-            // do something to the server
-            $.ajax({
-                url: "http://10.32.176.4/workshop"
-                    // run this, only if download from server is success
-            }).done(function(data) {
-                if (data != currentMessage) {
-                    var oldChat = field.val() + "\n";
-                    field.html(oldChat + data);
-                    currentMessage = data;
-
-                    // always scroll the the bottom
-                    field.scrollTop(field[0].scrollHeight);
-                }
-            });
-        }, 1000);
-
-        btn.click(function() {
-            var message = input.val();
-            $.ajax({
-                url: "http://10.32.176.4/workshop/" + name + ": " + message
-            });
-        });
-
-        input.keypress(function(e) {
-            if (e.keyCode == 13) {
-                e.preventDefault();
-                btn.click();
-                input.val("");
-            }
-        });
+        // var currentName = prompt("please, Enter your name?");
+        //
+        // var field = $("#chat-list");
+        //
+        // var sentBtn = $("#btn-sent");
+        // var createGroupBtn = $("#btn-createGroup");
+        // var toGroupBtn = $("#btn-toGroup");
+        //
+        // var input = $("#message");
+        //
+        // var groupNameHTML = $("#chatroomName");
+        //
+        // var currentMessage = "";
+        // var defaultURL = "http://10.32.176.4/";
+        // var currentGroup = "workshop/";
+        //
+        // field.val("--------------------(GROUP: " + currentGroup.substr(0, currentGroup.length - 1) + ")--------------------");
+        //
+        // setInterval(function() {
+        //     // current time
+        //     var now = (new Date()).toUTCString();
+        //
+        //     // do something to the server
+        //     $.ajax({
+        //         url: defaultURL + currentGroup
+        //             // run this, only if download from server is success
+        //     }).done(function(data) {
+        //         if (data != currentMessage) {
+        //             var oldChat = field.val() + "\n";
+        //             field.html(oldChat + data);
+        //             currentMessage = data;
+        //
+        //             // always scroll the the bottom
+        //             field.scrollTop(field[0].scrollHeight);
+        //         }
+        //     });
+        // }, 1000);
+        //
+        // sentBtn.click(function() {
+        //     var message = input.val();
+        //     $.ajax({
+        //         url: defaultURL + currentGroup + currentName + ": " + message
+        //     });
+        // });
+        //
+        // createGroupBtn.click(function() {
+        //     var groupName = prompt("please, Enter new group?");
+        //     createGroup(groupName);
+        // });
+        //
+        // toGroupBtn.click(function() {
+        //     var groupName = prompt("please, Enter group?");
+        //     toGroup(groupName);
+        // });
+        //
+        // input.keypress(function(e) {
+        //     if (e.keyCode == 13) {
+        //         e.preventDefault();
+        //         sentBtn.click();
+        //         input.val("");
+        //     }
+        // });
+        //
+        // // function
+        // var createGroup = function(name) {
+        //     $.ajax({
+        //         url: defaultURL + "group/" + name
+        //     }).done(function(data) {
+        //         alert(data);
+        //     });
+        // }
+        //
+        // var toGroup = function(name) {
+        //     $.ajax({
+        //         url: defaultURL + name
+        //     }).done(function(data) {
+        //         if (data.indexOf("is not exist") == -1) {
+        //             alert("changed, Now you in group: " + name);
+        //             currentGroup = name + "/";
+        //             groupNameHTML.text("Exceed software chatroom");
+        //             field.val("--------------------(GROUP: " + name + ")--------------------");
+        //         } else {
+        //             alert(data);
+        //         }
+        //     });
+        // }
     </script>
 </body>
 
